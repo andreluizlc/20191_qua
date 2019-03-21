@@ -1,0 +1,97 @@
+<html>
+	<head>
+		<title>Formulário</title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		
+		<form method="POST">
+			
+			<label for="nome_comp">Nome Completo</label><br>
+			<input type="text" name="nome_completo" 
+			maxlength="10" placeholder="Digite seu nome" 
+			value="" id="nome_comp">
+
+			<br><br>
+
+			Idade<br>
+			<input type="number" name="idade" min="0" max="5">
+
+			<br><br>
+
+			Data de Nascimento<br>
+			<input type="date" name="data_nasc">
+
+			<br><br>
+
+			Senha<br>
+			<input type="password" name="senha">
+
+			<br><br>
+
+			E-Mail<br>
+			<input type="email" name="email">
+
+			<br><br>
+
+			Cor do Template<br>
+			<input type="color" name="cor_tema">
+
+			<br><br>
+
+			Intervalo<br>
+			<input type="range" name="intervalo">
+
+			<br><br>
+
+			Horário de Início<br>
+			<input type="time" name="hora_inicio">
+
+			<br><br>
+
+			Foto<br>
+			<input type="file" name="foto">
+
+			<br><br>
+
+			ESPORTES
+			<br>
+			<input type="checkbox" name="esp_fut" value="fut">Futebol
+			<br>
+			<input type="checkbox" checked name="esp_vol" value="vol">Volei
+
+			<br><br>
+
+			TIPO
+			<br>
+			<input type="radio" name="tipo" value="PF">P. Física
+			<br>
+			<input type="radio" name="tipo" value="PJ">P. Jurídica
+
+			<br><br>
+
+			Estado
+			<br>
+			<select name="estado">
+				<option value="">Selecione</option>
+				<option value="BA">Bahia</option>
+				<option value="RJ">Rio de Janeiro</option>
+				<option selected value="SP">São Paulo</option>
+			</select>
+
+			<br><br>
+
+			Outros Dados
+			<br>
+			<textarea name="outros" required></textarea>
+
+			<br><br>
+
+			<input type="submit" value="Salvar">
+
+			<br><br><br><br><br><br><br><br><br><br><br>
+
+		</form>
+
+	</body>
+</html>

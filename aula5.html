@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Aula 5 - JavaScript</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
+	</head>
+	<body>
+		
+		Data: <input type="text" class="campo_data">
+
+		<br><br><br><br>
+
+		Peso<br>
+		<input type="text" id="peso">
+		<br><br>
+
+		Altura<br>
+		<input type="text" id="altura">
+		<br><br>
+
+		<input type="button" value="Calcular" onclick="calcular_imc();">
+		<br><br>
+
+		Resultado: <span id="resultado"></span>
+
+		<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+		<script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
+
+		<script>
+			
+
+
+			//alert("cadastrado com Sucesso!");
+
+			/*
+			var nome = prompt("Digite seu nome:");
+			alert("Bem vindo, " + nome + "!");
+			*/
+
+			/*
+			var flag = confirm("Deseja Apagar?");
+
+			if (flag == true) {
+				//alert("Apagado");
+				console.log("Apagado");
+			} else {
+				//alert("Não apagado");
+				console.log("Não apagado");
+			}
+			*/
+
+			function imc() {
+
+				var peso = prompt("Digite seu peso:");
+				var altura = prompt("Digite seu altura:");
+
+				var imc = peso/(altura*altura);
+
+				if (imc > 18 && imc < 25) {
+
+					alert("Peso normal! IMC: " + imc.toFixed(1));
+
+				} else {
+
+					alert("Procure um nutricionista! IMC: " + imc.toFixed(1));
+
+				}
+
+			}
+
+			function calcular_imc() {
+
+				// Obtem peso e altura nos campos
+				var peso = document.getElementById("peso").value;
+				var altura = document.getElementById("altura").value;
+
+				// Troca vírgula por ponto
+				peso = peso.replace(",", ".");
+				altura = altura.replace(",", ".");
+
+				// Transforma em decimal
+				peso = parseFloat(peso);
+				altura = parseFloat(altura);
+
+				// Calcula IMC
+				var imc = peso/(altura*altura);
+
+				// Formata o resultado com vírgula e uma casa decimal
+				imc = imc.toFixed(1).toString().replace(".", ",");
+
+				// Exibe resultado
+				document.getElementById("resultado").innerHTML = imc;
+
+			}
+
+			$(document).ready(function(){
+				
+				 $(".campo_data").datepicker({
+					dateFormat: 'dd/mm/yy',
+					dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
+					dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+					dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+					monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+					monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
+					nextText: 'Próximo',
+					prevText: 'Anterior'
+				});
+
+				 $("#peso").mask("00,0", {reverse: true});
+				 $("#altura").mask("0,00", {reverse: true});
+
+			});
+
+		</script>
+
+	</body>
+</html>
