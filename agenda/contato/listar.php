@@ -29,14 +29,7 @@
           error_reporting(1);
 
           // Conecta ao BD
-          $conexao = new mysqli("localhost", "root", "", "20191_web");
-
-          // Deu erro na conexão?
-          if ($conexao->connect_error) {
-
-            echo "Erro ao conectar: " . $conexao->connect_error . "<br>";
-
-          }
+          include_once "../conexao_bd.php";
 
           // Cria comando SQL
           $sql = "SELECT * 

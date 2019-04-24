@@ -7,24 +7,17 @@
   if ($_POST != NULL) {
 
     // Conecta ao BD
-    $conexao = new mysqli("localhost", "root", "", "20191_web");
-
-    // Deu erro na conexão?
-    if ($conexao->connect_error) {
-
-      echo "Erro ao conectar: " . $conexao->connect_error . "<br>";
-
-    }
+    include_once "../conexao_bd.php";
 
     // Obtém dados do formulário
     $nome = $_POST["nome"];
     $telefone = $_POST["telefone"];
     $email = $_POST["email"];
-    $grupo = $_POST["grupo"];
+    $cod_grupo = $_POST["cod_grupo"];
     $detalhes = $_POST["detalhes"];
 
     // Não preencheu algum campo obrigatório?
-    if ($nome == "" || $telefone == "" || $grupo == "" ) {
+    if ($nome == "" || $telefone == "" || $cod_grupo == "" ) {
 
       echo "<script>
               alert('Preencha todos os campos!');
@@ -34,8 +27,8 @@
     } else {
 
       // Cria comando SQL
-      $sql = "INSERT INTO contato (nome, telefone, email, grupo, detalhes) 
-              VALUES ('$nome', '$telefone', '$email', '$grupo', '$detalhes')";
+      $sql = "INSERT INTO contato (nome, telefone, email, cod_grupo, detalhes) 
+              VALUES ('$nome', '$telefone', '$email', '$cod_grupo', '$detalhes')";
 
       // Executa no BD
       $retorno = $conexao->query($sql);
@@ -102,12 +95,40 @@
 
         <div class="form-group">
           <label>Grupo</label>
-          <select name="grupo" required class="form-control">
+          <select name="cod_grupo" required class="form-control">
             <option value="">Selecione</option>
-            <option value="Amigo">Amigo</option>
-            <option value="Família">Família</option>
-            <option value="Trabalho">Trabalho</option>
-            <option value="Outro">Outro</option>
+            <?php
+
+              // Não exibe mensagens de alerta
+              error_reporting(1);
+
+              // Conecta ao BD
+              include_once "../conexao_bd.php";
+              
+              // Cria comando SQL
+              $sql = "SELECT * 
+                      FROM grupo";
+
+              // Executa no BD
+              $retorno = $conexao->query($sql);
+
+              // Deu erro?
+              if ($retorno == false) {
+                echo $conexao->error;
+              }
+
+              // Percorre todos os registros encontrados
+              while( $registro = $retorno->fetch_array() ) {
+
+                // obtém dados do registro
+                $id = $registro["id"];
+                $nome = $registro["nome"];
+
+                echo "<option value='$id'>$nome</option>";
+
+              }
+
+            ?>
           </select>
         </div>
 
