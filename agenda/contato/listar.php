@@ -8,6 +8,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
     <title>Agenda</title>
   </head>
   <body>
@@ -22,6 +24,8 @@
           <th>ID</th>
           <th>Nome</th>
           <th>Telefone</th>
+          <th>Ver</th>
+          <th>Apagar</th>
         </tr>
         <?php
 
@@ -55,6 +59,8 @@
                     <td>$id</td>
                     <td>$nome</td>
                     <td>$telefone</td>
+                    <td><a title='Ver Dados do Contato' class='btn btn-info' href='ver.php?id=$id'><i class='far fa-eye'></i></a></td>
+                    <td><a onclick=\"return confirm('Deseja apagar?');\" title='Apagar Contato' class='btn btn-danger' href='apagar.php?id=$id'><i class='fas fa-trash-alt'></i></a></td>
                   </tr>";
 
           }
