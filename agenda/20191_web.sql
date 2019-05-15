@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 23-Abr-2019 às 00:48
+-- Generation Time: 16-Maio-2019 às 01:41
 -- Versão do servidor: 10.1.37-MariaDB
 -- versão do PHP: 7.3.1
 
@@ -22,7 +22,8 @@ SET time_zone = "+00:00";
 -- Database: `20191_web`
 --
 
-CREATE DATABASE IF NOT EXISTS `20191_web`;
+DROP DATABASE `20191_web`;
+CREATE DATABASE `20191_web`;
 USE `20191_web`;
 
 -- --------------------------------------------------------
@@ -31,26 +32,24 @@ USE `20191_web`;
 -- Estrutura da tabela `contato`
 --
 
-CREATE TABLE IF NOT EXISTS `contato` (
+CREATE TABLE `contato` (
   `id` int(11) NOT NULL,
   `nome` varchar(100) NOT NULL,
   `telefone` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `cod_grupo` int(11) NOT NULL,
-  `detalhes` text NOT NULL
+  `detalhes` text NOT NULL,
+  `foto` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `contato`
 --
 
-INSERT INTO `contato` (`id`, `nome`, `telefone`, `email`, `cod_grupo`, `detalhes`) VALUES
-(1, 'teste', '54545', 'alexdeoliveira@gmail.com', 0, 'swdasdasd'),
-(2, '', '', '', 0, ''),
-(3, 'Teste 2', '54545', 'werw@dfs', 0, 'sdsaf'),
-(4, 'Teste 3', '54545', '', 0, ''),
-(5, 'Teste ir para listar', '54545', 'alexdeoliveira@gmail.com', 0, 'asdasd'),
-(6, 'Teste Grupo', '222', 'teste@teste.com', 4, 'testando');
+INSERT INTO `contato` (`id`, `nome`, `telefone`, `email`, `cod_grupo`, `detalhes`, `foto`) VALUES
+(7, 'Teste Grupo 1', '99999999999', 'teste@teste.com', 5, 'testando', 'http://www.escolhalivre.com/Images/imagem_perfil.jpg'),
+(8, 'Zacarias', '8888888', 'zacarias@trapalhoes.com', 1, 'teste', 'http://br.web.img3.acsta.net/r_1280_720/pictures/17/01/18/17/46/268398.jpg'),
+(9, 'Teste Grupo 2', '222', 'teste@teste.com', 5, 'testando', '');
 
 -- --------------------------------------------------------
 
@@ -58,7 +57,7 @@ INSERT INTO `contato` (`id`, `nome`, `telefone`, `email`, `cod_grupo`, `detalhes
 -- Estrutura da tabela `grupo`
 --
 
-CREATE TABLE IF NOT EXISTS `grupo` (
+CREATE TABLE `grupo` (
   `id` int(11) NOT NULL,
   `nome` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -71,7 +70,8 @@ INSERT INTO `grupo` (`id`, `nome`) VALUES
 (1, 'Amigos'),
 (2, 'FamÃ­lia'),
 (3, 'Trabalho'),
-(4, 'Faculdade');
+(4, 'Faculdade'),
+(5, 'TESTANDO');
 
 --
 -- Indexes for dumped tables
@@ -97,13 +97,13 @@ ALTER TABLE `grupo`
 -- AUTO_INCREMENT for table `contato`
 --
 ALTER TABLE `contato`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `grupo`
 --
 ALTER TABLE `grupo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
