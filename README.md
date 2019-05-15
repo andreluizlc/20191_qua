@@ -2,7 +2,7 @@
 
 Conteúdo desenvolvido em sala de aula na disciplina de Desenvolvimento de Apicações para Web.
 
-<br><br>
+<br>
 
 <b>Professor</b>: André Costa
 <br>
