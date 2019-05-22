@@ -3,6 +3,9 @@
   // Não exibe mensagens de alerta
   error_reporting(1);
 
+  // Inicializa a sessão
+  session_start();
+
   // Clicou em enviar?
   if ($_POST != NULL) {
 
@@ -17,6 +20,9 @@
     $detalhes = $_POST["detalhes"];
     $foto = $_POST["foto"];
 
+    // Obtém o ID do usuário logado
+    $cod_usuario = $_SESSION["user_id"];
+
     // Não preencheu algum campo obrigatório?
     if ($nome == "" || $telefone == "" || $cod_grupo == "" ) {
 
@@ -28,8 +34,8 @@
     } else {
 
       // Cria comando SQL
-      $sql = "INSERT INTO contato (nome, telefone, email, cod_grupo, detalhes, foto) 
-              VALUES ('$nome', '$telefone', '$email', '$cod_grupo', '$detalhes', '$foto')";
+      $sql = "INSERT INTO contato (nome, telefone, email, cod_grupo, detalhes, foto, cod_usuario) 
+              VALUES ('$nome', '$telefone', '$email', '$cod_grupo', '$detalhes', '$foto', '$cod_usuario')";
 
       // Executa no BD
       $retorno = $conexao->query($sql);

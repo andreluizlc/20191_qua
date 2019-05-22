@@ -1,5 +1,7 @@
 <?php include_once "../topo.php"; ?>
 
+<marquee>Bem vindo, <?php echo $_SESSION["user_name"]; ?>!</marquee>
+
 <h1>Contatos</h1>
 
 <table class="table table-bordered table-striped">
@@ -19,9 +21,13 @@
     // Conecta ao BD
     include_once "../conexao_bd.php";
 
+    // Obtém o ID do usuário logado
+    $cod_usuario = $_SESSION["user_id"];
+
     // Cria comando SQL
     $sql = "SELECT * 
-            FROM contato";
+            FROM contato 
+            WHERE cod_usuario = $cod_usuario";
 
     // Executa no BD
     $retorno = $conexao->query($sql);

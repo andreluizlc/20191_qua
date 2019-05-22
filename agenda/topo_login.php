@@ -1,15 +1,3 @@
-<?php
-
-// Inicializa a sessão
-session_start();
-
-// Não está autenticado?
-if ($_SESSION["logado"] != "ok") {
-  header("Location: ../index.php");
-}
-
-?>
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -25,7 +13,5 @@ if ($_SESSION["logado"] != "ok") {
     <title>Agenda</title>
   </head>
   <body>
-
-    <?php include_once "../menu.php"; ?>
 
     <div class="container">

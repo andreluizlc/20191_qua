@@ -27,6 +27,10 @@
         </div>
       </li>
 
+      <li class="nav-item">
+        <a class="nav-link" href="../sair.php">Logoff</a>
+      </li>
+
     </ul>
   </div>
 </nav>
